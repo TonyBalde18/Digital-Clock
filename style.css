@@ -15,10 +15,10 @@ body {
   
   .date {
     font-size: 2em;
-    margin-bottom: 20px;
+    margin-bottom: 150px;
+    margin-top: -300px;
   }
   
   .time {
     font-size: 4em;
   }
-  

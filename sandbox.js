@@ -12,14 +12,15 @@ const tick = () => {
   const day = now.getDate();
 
   const html = `
-    <div class="time">
+  <div class="date">
+      ${dayOfWeek}, ${month} ${day}
+    </div>  
+  <div class="time">
       <span>${h}</span> :
       <span>${m}</span> :
       <span>${s}</span>
     </div>
-    <div class="date">
-      ${dayOfWeek}, ${month} ${day}
-    </div>
+    
   `;
 
   clock.innerHTML = html;
