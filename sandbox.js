@@ -1,5 +1,6 @@
 const clock = document.querySelector('.clock');
 const formatToggle = document.getElementById('formatToggle');
+const timeElement = clock.querySelector('.time');
 
 let is24HourFormat = true; // Initial format is 24-hour
 
@@ -16,47 +17,33 @@ const padZero = (value) => {
   return value < 10 ? `0${value}` : value;
 };
 
-const updateClock = () => {
+const updateTime = () => {
   const now = new Date();
-  
+
   let h = now.getHours();
   const m = now.getMinutes();
   const s = now.getSeconds();
 
-  const dayOfWeek = now.toLocaleDateString('en-US', { weekday: 'long' });
-  const month = now.toLocaleDateString('en-US', { month: 'long' });
-  const day = now.getDate();
-
   // Format the hour based on the selected format
   h = formatTime(h);
 
-  const html = `
-    <div class="date">
-      ${dayOfWeek}, ${month} ${day}
-    </div>  
-    <div class="time">
-      <span>${padZero(h)}</span> :
-      <span>${padZero(m)}</span> :
-      <span>${padZero(s)}</span>
-    </div>
-    <label class="switch">
-      <input id="formatToggle" type="checkbox">
-      <span class="slider round"></span>
-    </label>
+  const timeHTML = `
+    <span>${padZero(h)}</span> :
+    <span>${padZero(m)}</span> :
+    <span>${padZero(s)}</span>
   `;
 
-  clock.innerHTML = html;
-
-  // Re-attach event listener to the new checkbox element
-  formatToggle.checked = is24HourFormat;
-  formatToggle.addEventListener('change', toggleFormat);
+  timeElement.innerHTML = timeHTML;
 };
 
 const toggleFormat = () => {
   is24HourFormat = !is24HourFormat; // Toggle the format
-  updateClock(); // Update the clock immediately after toggling the format
+  updateTime(); // Update the time immediately after toggling the format
 };
 
-updateClock(); // Initial clock update
+formatToggle.addEventListener('change', toggleFormat);
 
-setInterval(updateClock, 1000);
+// Initial time update
+updateTime();
+
+setInterval(updateTime, 1000);
