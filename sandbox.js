@@ -1,9 +1,25 @@
 const clock = document.querySelector('.clock');
+const formatToggle = document.getElementById('formatToggle');
+
+let is24HourFormat = true; // Initial format is 24-hour
+
+const formatTime = (hours) => {
+  if (is24HourFormat) {
+    return hours;
+  } else {
+    // Convert to 12-hour format
+    return hours % 12 || 12;
+  }
+};
+
+const padZero = (value) => {
+  return value < 10 ? `0${value}` : value;
+};
 
 const tick = () => {
   const now = new Date();
   
-  const h = now.getHours();
+  let h = now.getHours();
   const m = now.getMinutes();
   const s = now.getSeconds();
 
@@ -11,19 +27,31 @@ const tick = () => {
   const month = now.toLocaleDateString('en-US', { month: 'long' });
   const day = now.getDate();
 
+  // Format the hour based on the selected format
+  h = formatTime(h);
+
   const html = `
-  <div class="date">
+    <div class="date">
       ${dayOfWeek}, ${month} ${day}
     </div>  
-  <div class="time">
-      <span>${h}</span> :
-      <span>${m}</span> :
-      <span>${s}</span>
+    <div class="time">
+      <span>${padZero(h)}</span> :
+      <span>${padZero(m)}</span> :
+      <span>${padZero(s)}</span>
     </div>
-    
+    <button id="formatToggle">Toggle Format</button>
   `;
 
   clock.innerHTML = html;
+
+  // Re-attach event listener to the new button element
+  formatToggle = document.getElementById('formatToggle');
+  formatToggle.addEventListener('click', toggleFormat);
+};
+
+const toggleFormat = () => {
+  is24HourFormat = !is24HourFormat; // Toggle the format
+  tick(); // Update the clock immediately after toggling the format
 };
 
 setInterval(tick, 1000);

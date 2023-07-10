@@ -1,24 +1,34 @@
 body {
-    background: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
-  
-  .clock {
-    text-align: center;
-    color: yellow;
-    font-family: Arial;
-  }
-  
-  .date {
-    font-size: 2em;
-    margin-bottom: 150px;
-    margin-top: -300px;
-  }
-  
-  .time {
-    font-size: 4em;
-  }
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.clock {
+  text-align: center;
+  color: yellow;
+  font-family: Arial;
+}
+
+.date {
+  font-size: 2em;
+  margin-bottom: 150px;
+  margin-top: -300px;
+}
+
+.time {
+  font-size: 4em;
+}
+
+#formatToggle {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
