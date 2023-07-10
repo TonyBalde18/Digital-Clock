@@ -2,6 +2,7 @@ body {
   background-color: #001f3f;
   color: #fff;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -11,11 +12,15 @@ body {
 
 .clock {
   text-align: center;
+  margin-bottom: 30px;
+  margin-top: 150px;
+  font-size: 5em;
 }
 
 .date {
-  font-size: 1.5em;
+  font-size: 2em;
   margin-bottom: 10px;
+  margin-top: -150px;
 }
 
 .time {
@@ -26,7 +31,6 @@ body {
   text-align: center;
   margin-top: 20px;
 }
-
 .switch {
   position: relative;
   display: inline-block;
@@ -48,7 +52,7 @@ body {
   right: 0;
   bottom: 0;
   background-color: #0dcaf0;
-  transition: .4s;
+  transition: 0.4s;
   border-radius: 34px;
 }
 
@@ -60,7 +64,7 @@ body {
   left: 4px;
   bottom: 4px;
   background-color: #fff;
-  transition: .4s;
+  transition: 0.4s;
   border-radius: 50%;
 }
 
@@ -82,4 +86,9 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.toggle-container {
+  text-align: center;
+  margin-top: 20px;
 }
