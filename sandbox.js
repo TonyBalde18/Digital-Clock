@@ -1,5 +1,5 @@
 const clock = document.querySelector('.clock');
-const formatToggle = document.getElementById('formatToggle');
+let formatToggle; // Declare formatToggle variable
 
 let is24HourFormat = true; // Initial format is 24-hour
 
@@ -16,9 +16,9 @@ const padZero = (value) => {
   return value < 10 ? `0${value}` : value;
 };
 
-const tick = () => {
+const createClockHTML = () => {
   const now = new Date();
-  
+
   let h = now.getHours();
   const m = now.getMinutes();
   const s = now.getSeconds();
@@ -42,6 +42,11 @@ const tick = () => {
     <button id="formatToggle">Toggle Format</button>
   `;
 
+  return html;
+};
+
+const updateClock = () => {
+  const html = createClockHTML();
   clock.innerHTML = html;
 
   // Re-attach event listener to the new button element
@@ -51,7 +56,9 @@ const tick = () => {
 
 const toggleFormat = () => {
   is24HourFormat = !is24HourFormat; // Toggle the format
-  tick(); // Update the clock immediately after toggling the format
+  updateClock(); // Update the clock immediately after toggling the format
 };
 
-setInterval(tick, 1000);
+updateClock(); // Initial clock update
+
+setInterval(updateClock, 1000);
