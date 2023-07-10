@@ -1,5 +1,5 @@
 const clock = document.querySelector('.clock');
-let formatToggle; // Declare formatToggle variable
+const formatToggle = document.getElementById('formatToggle');
 
 let is24HourFormat = true; // Initial format is 24-hour
 
@@ -39,7 +39,10 @@ const createClockHTML = () => {
       <span>${padZero(m)}</span> :
       <span>${padZero(s)}</span>
     </div>
-    <button id="formatToggle">Toggle Format</button>
+    <label class="switch">
+      <input id="formatToggle" type="checkbox">
+      <span class="slider round"></span>
+    </label>
   `;
 
   return html;
@@ -49,9 +52,9 @@ const updateClock = () => {
   const html = createClockHTML();
   clock.innerHTML = html;
 
-  // Re-attach event listener to the new button element
+  // Re-attach event listener to the new checkbox element
   formatToggle = document.getElementById('formatToggle');
-  formatToggle.addEventListener('click', toggleFormat);
+  formatToggle.addEventListener('change', toggleFormat);
 };
 
 const toggleFormat = () => {
