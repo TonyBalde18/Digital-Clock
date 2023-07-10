@@ -1,26 +1,30 @@
 body {
-  background: #333;
+  background-color: #001f3f;
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
+  font-family: Arial, sans-serif;
 }
 
 .clock {
   text-align: center;
-  color: yellow;
-  font-family: Arial;
 }
 
 .date {
-  font-size: 2em;
-  margin-bottom: 150px;
-  margin-top: -300px;
+  font-size: 1.5em;
+  margin-bottom: 10px;
 }
 
 .time {
-  font-size: 4em;
+  font-size: 3em;
+}
+
+.toggle-container {
+  text-align: center;
+  margin-top: 20px;
 }
 
 .switch {
@@ -43,7 +47,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #0dcaf0;
   transition: .4s;
   border-radius: 34px;
 }
@@ -55,17 +59,17 @@ body {
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: white;
+  background-color: #fff;
   transition: .4s;
   border-radius: 50%;
 }
 
 input:checked + .slider {
-  background-color: #4CAF50;
+  background-color: #007bff;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #4CAF50;
+  box-shadow: 0 0 1px #007bff;
 }
 
 input:checked + .slider:before {
@@ -78,15 +82,4 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
-}
-
-.toggle-container {
-  text-align: center;
-  margin-top: 10px;
-}
-
-.toggle-label {
-  display: inline-block;
-  margin-left: 5px;
-  color: white;
 }

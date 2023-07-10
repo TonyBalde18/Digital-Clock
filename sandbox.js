@@ -1,6 +1,6 @@
 const clock = document.querySelector('.clock');
 const formatToggle = document.getElementById('formatToggle');
-const timeElement = clock.querySelector('.time');
+const dateElement = document.querySelector('.date');
 
 let is24HourFormat = true; // Initial format is 24-hour
 
@@ -17,15 +17,26 @@ const padZero = (value) => {
   return value < 10 ? `0${value}` : value;
 };
 
-const updateTime = () => {
+const updateClock = () => {
   const now = new Date();
 
   let h = now.getHours();
   const m = now.getMinutes();
   const s = now.getSeconds();
 
+  const dayOfWeek = now.toLocaleDateString('en-US', { weekday: 'long' });
+  const month = now.toLocaleDateString('en-US', { month: 'long' });
+  const day = now.getDate();
+
   // Format the hour based on the selected format
   h = formatTime(h);
+
+  const dateHTML = `
+    <div>${dayOfWeek}</div>
+    <div>${month} ${day}</div>
+  `;
+
+  dateElement.innerHTML = dateHTML;
 
   const timeHTML = `
     <span>${padZero(h)}</span> :
@@ -33,17 +44,17 @@ const updateTime = () => {
     <span>${padZero(s)}</span>
   `;
 
-  timeElement.innerHTML = timeHTML;
+  clock.innerHTML = timeHTML;
 };
 
 const toggleFormat = () => {
   is24HourFormat = !is24HourFormat; // Toggle the format
-  updateTime(); // Update the time immediately after toggling the format
+  updateClock(); // Update the clock immediately after toggling the format
 };
 
 formatToggle.addEventListener('change', toggleFormat);
 
-// Initial time update
-updateTime();
+// Initial clock update
+updateClock();
 
-setInterval(updateTime, 1000);
+setInterval(updateClock, 1000);
