@@ -16,9 +16,9 @@ const padZero = (value) => {
   return value < 10 ? `0${value}` : value;
 };
 
-const createClockHTML = () => {
+const updateClock = () => {
   const now = new Date();
-
+  
   let h = now.getHours();
   const m = now.getMinutes();
   const s = now.getSeconds();
@@ -45,15 +45,10 @@ const createClockHTML = () => {
     </label>
   `;
 
-  return html;
-};
-
-const updateClock = () => {
-  const html = createClockHTML();
   clock.innerHTML = html;
 
   // Re-attach event listener to the new checkbox element
-  formatToggle = document.getElementById('formatToggle');
+  formatToggle.checked = is24HourFormat;
   formatToggle.addEventListener('change', toggleFormat);
 };
 
