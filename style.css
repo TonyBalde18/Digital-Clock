@@ -1,14 +1,24 @@
-body{
+body {
     background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
   }
-  .clock{
-    font-size: 4em;
+  
+  .clock {
     text-align: center;
-    margin: 200px auto;
     color: yellow;
-    font-family: arial;
+    font-family: Arial;
   }
-  .clock span{
-    padding: 20px;
-    background: #444;
+  
+  .date {
+    font-size: 2em;
+    margin-bottom: 20px;
   }
+  
+  .time {
+    font-size: 4em;
+  }
+  
