@@ -47,10 +47,17 @@ const updateClock = () => {
   clock.innerHTML = timeHTML;
 };
 
+const formatLabel = document.getElementById("formatLabel");
+
 const toggleFormat = () => {
   is24HourFormat = !is24HourFormat; // Toggle the format
   updateClock(); // Update the clock immediately after toggling the format
+
+  // Update the format label text
+  formatLabel.textContent = is24HourFormat ? "24h Format" : "12h Format";
 };
+
+formatToggle.addEventListener("change", toggleFormat);
 
 formatToggle.addEventListener("change", toggleFormat);
 
