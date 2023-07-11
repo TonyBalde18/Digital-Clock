@@ -110,7 +110,24 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-.toggle-container {
-  text-align: center;
-  margin-top: 20px;
+.timezone-container {
+  position: relative;
+}
+
+.timezone-container label {
+  margin-bottom: 5px;
+  font-size: 1.2em;
+}
+
+.timezone-container select {
+  position: absolute;
+  top: 0;
+  left: 15;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.timezone-container.show select {
+  z-index: 1;
+  opacity: 1;
 }

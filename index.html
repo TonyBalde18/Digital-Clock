@@ -8,17 +8,26 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="timezone-container">
+      <label for="timezoneSelect">Select Timezone:</label>
+      <select id="timezoneSelect">
+        <option value="GMT">Greenwich Mean Time (GMT)</option>
+        <option value="UTC">Universal Coordinated Time (UTC)</option>
+        <!-- Add more timezone options here -->
+      </select>
+    </div>
     <div class="background-overlay"></div>
     <div class="date"></div>
     <div class="clock">
       <div class="time"></div>
     </div>
+
     <div class="toggle-container">
       <label class="switch">
         <input id="formatToggle" type="checkbox" />
         <span class="slider"></span>
       </label>
-      <span id="formatLabel" class="format-label">24h Format</span>
+      <span id="formatLabel" class="format-labels">24h Format</span>
     </div>
     <script src="sandbox.js"></script>
   </body>
