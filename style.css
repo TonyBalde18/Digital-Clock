@@ -122,7 +122,7 @@ input:checked + .slider:before {
 .timezone-container select {
   position: absolute;
   top: 0;
-  left: 15;
+  left: 0;
   cursor: pointer;
   z-index: 1;
 }

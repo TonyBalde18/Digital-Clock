@@ -1,59 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>World Digital Clock</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="timezone-container">
-      <label for="timezoneSelect">Select Timezone:</label>
-      <select id="timezoneSelect">
-        <option value="GMT">Greenwich Mean Time (GMT)</option>
-        <option value="UTC">Universal Coordinated Time (UTC)</option>
-        <option value="ETC">European Central Time (ETC) +1</option>
-        <option value="EET">Eastern European Time (EET) +2</option>
-        <option value="EAT">Eastern African Time (EAT) +3</option>
-        <option value="MET">Middle East Time (MET) +3:30</option>
-        <option value="NET">Near East Time (NET) +4</option>
-        <option value="PLT">Pakistan Lahore Time (PLT) +5</option>
-        <option value="IST">India Standard Time (IST) +5:30</option>
-        <option value="BST">Bangladesh Standard Time (BST) +6</option>
-        <option value="VST">Vietnam Standard Time (VST) +7</option>
-        <option value="CTT">China Taiwan Time (CTT) +8</option>
-        <option value="JST">Japan Standard Time (JST) +9</option>
-        <option value="ACT">Australia Central Time (ACT) +9:30</option>
-        <option value="AET">Australia Eastern Time (AET) +10</option>
-        <option value="SST">Solomon Standard Time (SST) +11</option>
-        <option value="NST">New Zealand Standard Time (NST) +12</option>
-        <option value="MIT">Midway Islands Time (MIT) -11</option>
-        <option value="HST">Hawaii Standard Time (HST) -10</option>
-        <option value="AST">Alaska Standard Time (AST) -9</option>
-        <option value="PST">Pacific Standard Time (PST) -8</option>
-        <option value="PNT">Phoenix Standard Time (PNT) -7</option>
-        <option value="CST">Central Standard Time (CST) -6</option>
-        <option value="EST">Eastern Standard Time (EST) -5</option>
-        <option value="PRT">Puerto Rico Time (PRT) -4</option>
-        <option value="CNT">Canada Newfoundland Time (CNT) -3:30</option>
-        <option value="AGT">Argentina Standard Time (AGT) -3</option>
-        <option value="CAT">Central African Time (CAT) -1</option>
-      </select>
-    </div>
-    <div class="background-overlay"></div>
-    <div class="date"></div>
-    <div class="clock">
-      <div class="time"></div>
-    </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>World Digital Clock</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="timezone-container">
+    <label for="timezoneSelect">Select Timezone:</label>
+    <select id="timezoneSelect">
+      <option value="GMT">Greenwich Mean Time (GMT)</option>
+      <option value="UTC">Universal Coordinated Time (UTC)</option>
+      <option value="ETC">European Central Time (ETC) +1</option>
+      <option value="EET">Eastern European Time (EET) +2</option>
+      <option value="EAT">Eastern African Time (EAT) +3</option>
+      <option value="MET">Middle East Time (MET) +3:30</option>
+      <option value="NET">Near East Time (NET) +4</option>
+      <option value="PLT">Pakistan Lahore Time (PLT) +5</option>
+      <option value="IST">India Standard Time (IST) +5:30</option>
+      <option value="BST">Bangladesh Standard Time (BST) +6</option>
+      <option value="VST">Vietnam Standard Time (VST) +7</option>
+      <option value="CTT">China Taiwan Time (CTT) +8</option>
+      <option value="JST">Japan Standard Time (JST) +9</option>
+      <option value="ACT">Australia Central Time (ACT) +9:30</option>
+      <option value="AET">Australia Eastern Time (AET) +10</option>
+      <option value="SST">Solomon Standard Time (SST) +11</option>
+      <option value="NST">New Zealand Standard Time (NST) +12</option>
+      <option value="MIT">Midway Islands Time (MIT) -11</option>
+      <option value="HST">Hawaii Standard Time (HST) -10</option>
+      <option value="AST">Alaska Standard Time (AST) -9</option>
+      <option value="PST">Pacific Standard Time (PST) -8</option>
+      <option value="PNT">Phoenix Standard Time (PNT) -7</option>
+      <option value="CST">Central Standard Time (CST) -6</option>
+      <option value="EST">Eastern Standard Time (EST) -5</option>
+      <option value="PRT">Puerto Rico Time (PRT) -4</option>
+      <option value="CNT">Canada Newfoundland Time (CNT) -3:30</option>
+      <option value="AGT">Argentina Standard Time (AGT) -3</option>
+      <option value="CAT">Central African Time (CAT) -1</option>
+    </select>
+  </div>
+  <div class="background-overlay"></div>
+  <div class="date"></div>
+  <div class="clock">
+    <div class="time"></div>
+  </div>
 
-    <div class="toggle-container">
-      <label class="switch">
-        <input id="formatToggle" type="checkbox" />
-        <span class="slider"></span>
-      </label>
-      <span id="formatLabel" class="format-labels">24h Format</span>
-    </div>
-    <script src="sandbox.js"></script>
-  </body>
+  <div class="toggle-container">
+    <label class="switch">
+      <input id="formatToggle" type="checkbox">
+      <span class="slider"></span>
+    </label>
+    <span id="formatLabel" class="format-labels">24h Format</span>
+  </div>
+
+  <script src="sandbox.js"></script>
+</body>
 </html>

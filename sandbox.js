@@ -27,58 +27,48 @@ const padZero = (value) => {
 const timezoneSelect = document.getElementById("timezoneSelect");
 const timezoneContainer = document.querySelector(".timezone-container");
 
-const getTimezoneOffset = (timezone) => {
-  const now = new Date();
-  const timezoneDate = now.toLocaleString("en-US", { timeZone: timezone });
-  const timezoneTime = new Date(timezoneDate);
-  return timezoneTime.getTimezoneOffset() / 60; // Return the offset in hours
-};
-
 const updateClockWithTimezone = () => {
   const selectedTimezone = timezoneSelect.value;
-  const timezoneOffset = getTimezoneOffset(selectedTimezone);
+  const now = new Date().toLocaleString("en-US", {
+    timeZone: selectedTimezone,
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+    hour12: false,
+  });
 
-  const now = new Date();
-  now.setHours(now.getHours() + timezoneOffset);
-  const updateClock = () => {
-    const now = new Date();
+  const [h, m, s] = now.split(":").map(Number);
 
-    let h = now.getHours();
-    const m = now.getMinutes();
-    const s = now.getSeconds();
+  const dayOfWeek = new Date().toLocaleDateString("en-US", { weekday: "long" });
+  const month = new Date().toLocaleDateString("en-US", { month: "long" });
+  const day = new Date().getDate();
 
-    const dayOfWeek = now.toLocaleDateString("en-US", { weekday: "long" });
-    const month = now.toLocaleDateString("en-US", { month: "long" });
-    const day = now.getDate();
+  const formattedTime = formatTime(h);
+  const hours = formattedTime.hours;
+  const isAM = formattedTime.isAM;
 
-    const formattedTime = formatTime(h);
-    h = formattedTime.hours;
-    const isAM = formattedTime.isAM;
-
-    const dateHTML = `
+  const dateHTML = `
     <div>${dayOfWeek}</div>
     <div>${month} ${day}</div>
   `;
 
-    dateElement.innerHTML = dateHTML;
+  dateElement.innerHTML = dateHTML;
 
-    const timeHTML = `
-    <span>${padZero(h)}</span> :
+  const timeHTML = `
+    <span>${padZero(hours)}</span> :
     <span>${padZero(m)}</span> :
     <span>${padZero(s)}</span>
   `;
 
-    clock.innerHTML = timeHTML;
+  clock.innerHTML = timeHTML;
 
-    // Clear the previous AM/PM text
-    clock.querySelectorAll(".am-pm").forEach((el) => el.remove());
+  // Clear the previous AM/PM text
+  clock.querySelectorAll(".am-pm").forEach((el) => el.remove());
 
-    if (!is24HourFormat && isAM !== null) {
-      const amPmHTML = `<span class="am-pm">${isAM ? "AM" : "PM"}</span>`;
-      clock.insertAdjacentHTML("beforeend", amPmHTML);
-    }
-  };
-  updateClock();
+  if (!is24HourFormat && isAM !== null) {
+    const amPmHTML = `<span class="am-pm">${isAM ? "AM" : "PM"}</span>`;
+    clock.insertAdjacentHTML("beforeend", amPmHTML);
+  }
 };
 
 timezoneSelect.addEventListener("change", updateClockWithTimezone);
