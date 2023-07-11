@@ -8,19 +8,17 @@ const formatTime = (hours) => {
   if (is24HourFormat) {
     return {
       hours: hours,
-      isAM: null
+      isAM: null,
     };
   } else {
     const isAM = hours < 12 || hours === 24;
     const formattedHours = hours % 12 || 12;
     return {
       hours: formattedHours,
-      isAM: isAM
+      isAM: isAM,
     };
   }
 };
-
-
 
 const padZero = (value) => {
   return value < 10 ? `0${value}` : value;
@@ -65,8 +63,6 @@ const updateClock = () => {
   }
 };
 
-
-
 const formatLabel = document.getElementById("formatLabel");
 
 const toggleFormat = () => {
@@ -76,8 +72,6 @@ const toggleFormat = () => {
   // Update the format label text
   formatLabel.textContent = is24HourFormat ? "24h Format" : "12h Format";
 };
-
-
 
 formatToggle.addEventListener("change", toggleFormat);
 
