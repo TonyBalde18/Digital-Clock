@@ -40,7 +40,7 @@ body {
   margin-bottom: 10px;
 }
 
-.format-label {
+.twentyfour {
   color: #fff;
   margin: 0 0 0 130px;
 }
@@ -48,7 +48,6 @@ body {
   color: #fff;
   margin-right: 130px;
 }
-
 
 .switch {
   position: relative;
@@ -71,7 +70,7 @@ body {
   right: 0;
   bottom: 0;
   background-color: #0dcaf0;
-  transition: .4s;
+  transition: 0.4s;
   border-radius: 34px;
 }
 
@@ -83,7 +82,7 @@ body {
   left: 4px;
   bottom: 4px;
   background-color: #fff;
-  transition: .4s;
+  transition: 0.4s;
   border-radius: 50%;
 }
 
