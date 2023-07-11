@@ -7,7 +7,7 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: monospace;
 }
 
 .clock {
@@ -30,7 +30,26 @@ body {
 .toggle-container {
   text-align: center;
   margin-top: 20px;
+  position: relative;
 }
+
+.format-labels {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
+
+.format-label {
+  color: #fff;
+  margin: 0 0 0 130px;
+}
+.twelve {
+  color: #fff;
+  margin-right: 130px;
+}
+
+
 .switch {
   position: relative;
   display: inline-block;
@@ -52,7 +71,7 @@ body {
   right: 0;
   bottom: 0;
   background-color: #0dcaf0;
-  transition: 0.4s;
+  transition: .4s;
   border-radius: 34px;
 }
 
@@ -64,7 +83,7 @@ body {
   left: 4px;
   bottom: 4px;
   background-color: #fff;
-  transition: 0.4s;
+  transition: .4s;
   border-radius: 50%;
 }
 
