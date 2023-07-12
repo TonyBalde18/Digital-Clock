@@ -71,6 +71,7 @@ const updateClockWithTimezone = () => {
   }
 };
 
+
 timezoneSelect.addEventListener("change", updateClockWithTimezone);
 
 // Handle dropdown behavior
