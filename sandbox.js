@@ -11,26 +11,24 @@ const padZero = (value) => {
 const updateClock = () => {
   const selectedOption = timezoneSelect.options[timezoneSelect.selectedIndex];
   const selectedTimezone = selectedOption.value;
-  const time = new Date().toLocaleTimeString("en-US", {
+  const currentTime = new Date();
+  const timeOptions = {
     timeZone: selectedTimezone,
     hour12: !is24HourFormat,
-  });
-  const [hours, minutes, seconds] = time.split(":").map(Number);
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric"
+  };
+  const time = currentTime.toLocaleTimeString("en-US", timeOptions);
 
   console.log("Selected Timezone:", selectedTimezone);
   console.log("Current Time:", time);
-  console.log("Hours:", hours);
-  console.log("Minutes:", minutes);
-  console.log("Seconds:", seconds);
 
-  const timeHTML = `
-    <span>${formatTime(hours)}</span> :
-    <span>${padZero(minutes)}</span> :
-    <span>${padZero(seconds || 0)}</span>
-  `;
+  const timeHTML = `<span>${time}</span>`;
 
   clock.innerHTML = timeHTML;
 };
+
 
 const formatTime = (hours) => {
   if (is24HourFormat) {
