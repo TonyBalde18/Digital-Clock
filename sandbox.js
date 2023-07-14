@@ -1,4 +1,7 @@
 const clock = document.querySelector(".clock .time");
+const weekdayContainer = document.querySelector(".date-container .weekday");
+const dayContainer = document.querySelector(".date-container .day");
+const monthContainer = document.querySelector(".date-container .month");
 const formatToggle = document.getElementById("formatToggle");
 const timezoneSelect = document.getElementById("timezoneSelect");
 
@@ -12,6 +15,8 @@ const updateClock = () => {
   const selectedOption = timezoneSelect.options[timezoneSelect.selectedIndex];
   const selectedTimezone = selectedOption.value;
   const currentTime = new Date();
+
+  // Update time
   const timeOptions = {
     timeZone: selectedTimezone,
     hour12: !is24HourFormat,
@@ -20,13 +25,20 @@ const updateClock = () => {
     second: "numeric",
   };
   const time = currentTime.toLocaleTimeString("en-US", timeOptions);
+  clock.innerHTML = `<span>${time}</span>`;
 
-  console.log("Selected Timezone:", selectedTimezone);
-  console.log("Current Time:", time);
-
-  const timeHTML = `<span>${time}</span>`;
-
-  clock.innerHTML = timeHTML;
+  // Update date
+  const dateOptions = {
+    timeZone: selectedTimezone,
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+  };
+  const date = currentTime.toLocaleDateString("en-US", dateOptions);
+  const [weekday, month, day] = date.split(", ");
+  weekdayContainer.textContent = weekday;
+  dayContainer.textContent = day;
+  monthContainer.textContent = month;
 };
 
 const formatTime = (hours) => {
