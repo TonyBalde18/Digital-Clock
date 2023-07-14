@@ -17,7 +17,7 @@ const updateClock = () => {
     hour12: !is24HourFormat,
     hour: "numeric",
     minute: "numeric",
-    second: "numeric"
+    second: "numeric",
   };
   const time = currentTime.toLocaleTimeString("en-US", timeOptions);
 
@@ -28,7 +28,6 @@ const updateClock = () => {
 
   clock.innerHTML = timeHTML;
 };
-
 
 const formatTime = (hours) => {
   if (is24HourFormat) {
